@@ -1,6 +1,7 @@
+import { MouseEvent, useRef } from 'react'
+import { X } from 'lucide-react'
 import { Button } from '../Button'
 import styles from './styles.module.css'
-import { X } from 'lucide-react'
 
 interface Props {
   isOpen: boolean
@@ -9,9 +10,21 @@ interface Props {
 
 export function Drawer({ isOpen, onClose }: Props) {
 
+  const overlayRef = useRef(null);
+
+  function handleOverlayClick(event: MouseEvent<HTMLDivElement>) {
+    if (event.target === overlayRef.current) {
+      onClose();
+    }
+  }
+
+  function handleDrawerClick(event: MouseEvent<HTMLDivElement>) {
+    event.stopPropagation();
+  }
+
   return (
-    <div data-open={isOpen} role="slider"  className={styles.overlay}>
-      <div className={styles.wrapper}>
+    <div data-open={isOpen} role="slider" ref={overlayRef} onClick={handleOverlayClick} className={styles.overlay}>
+      <div className={styles.wrapper} onClick={handleDrawerClick}>
         <header>
           <h3 className="sub-01-—-urbanist-—-18-pt">Meu carrinho</h3>
           <button aria-label="Close Drawer">
