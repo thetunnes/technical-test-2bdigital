@@ -1,0 +1,179 @@
+.product {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  background: transparent;
+  border-radius: 24px;
+  padding: 1rem;
+}
+
+.labels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;
+}
+
+.labels .label {
+  width: max-content;
+  border-radius: 2px;
+  background: var(--azul-universe-dark) 0% 0% no-repeat padding-box;
+  font: var(--unnamed-font-style-normal) normal 800 var(--unnamed-font-size-10)/var(--unnamed-line-spacing-12) var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--rosa-2b-lightest);
+  padding: 0.25rem 0.5rem;
+}
+
+.labels .label[data-type="sale"] {
+  background: var(--rosa-2b-dark) 0% 0% no-repeat padding-box;
+}
+
+.product .content img {
+  transition: all 0.4s;
+}
+
+/* HOVER PRODUCT */
+
+.product:hover {
+  background: var(--rosa-2b-lightest);
+}
+
+.product:hover .content img {
+  transform: translateY(-10%);
+  scale: 0.9;
+}
+
+.product:hover .sizes {
+  transform: translateY(-20%);
+  opacity: 1;
+}
+
+.product .footer > button {
+  opacity: 0;
+  transition: opacity 0.4s;
+  margin-top: 1rem;
+}
+
+.product:hover .footer > button {
+  opacity: 1;
+}
+
+
+
+/* BUTTONS SIZE PRODUCT */
+
+.sizes {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  transform: translateY(20%);
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.size {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--neutral-lightest) 0% 0% no-repeat padding-box;
+  border: 1px solid var(--rosa-2b-medium);
+  border-radius: 50%;
+
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-12)/var(--unnamed-line-spacing-14) var(--unnamed-font-family-urbanist);
+  /* letter-spacing: var(--unnamed-character-spacing-0-6); */
+  color: var(--rosa-2b-dark);
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+}
+
+.size:not([data-active="true"]):hover {
+  border-color: var(--rosa-2b-dark);
+}
+
+.size[data-active="true"] {
+  border: 0;
+  background: var(--rosa-2b-dark) 0% 0% no-repeat padding-box;
+  color: var(--rosa-2b-lightest);
+}
+
+.size:disabled {
+  position: relative;
+  background: var(--azul-universe-lightest);
+  color: var(--azul-universe-medium);
+  border: 0;
+}
+.size:disabled::before {
+  content: 'X';
+  width: 0.875rem;
+  height: 0.875rem;
+  font-size: 0.625rem;
+
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  border-radius: 50%;
+  background: var(--neutral-lightest) 0% 0% no-repeat padding-box;
+  border: 1px solid var(--azul-universe-light);
+  color: var(--rosa-2b-dark);
+}
+
+/* PRICE AND BUTTON PURCHASE */
+
+.footer {
+  width: max-content;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.name {
+  margin: 0.5rem auto;
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/16px var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0-7);
+  color: var(--azul-universe-darkest);
+  text-align: center;
+}
+
+.footer .price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0 1rem;
+
+}
+
+.footer .price .fullPrice {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-12)/var(--unnamed-line-spacing-14) var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0-6);
+  color: var(--azul-universe-dark);
+  text-align: center;
+  text-decoration: line-through;
+}
+
+.footer .finalPrice {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-16)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--azul-universe-dark);
+  text-align: center;
+}
+
+.footer .parcels {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-12)/var(--unnamed-line-spacing-14) var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--azul-universe-darkest);
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.footer .parcels strong {
+  color: var(--rosa-2b-dark);
+}
