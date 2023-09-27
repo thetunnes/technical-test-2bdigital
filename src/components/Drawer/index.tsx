@@ -2,6 +2,7 @@ import { MouseEvent, useRef } from 'react'
 import { X } from 'lucide-react'
 import { Button } from '../Button'
 import styles from './styles.module.css'
+import { ProductInCart } from '../Cart/ProductInCart'
 
 interface Props {
   isOpen: boolean
@@ -25,7 +26,7 @@ export function Drawer({ isOpen, onClose }: Props) {
   return (
     <div data-open={isOpen} role="slider" ref={overlayRef} onClick={handleOverlayClick} className={styles.overlay}>
       <div className={styles.wrapper} onClick={handleDrawerClick}>
-        <header>
+        <header className={styles.title}>
           <h3 className="sub-01-—-urbanist-—-18-pt">Meu carrinho</h3>
           <button aria-label="Close Drawer">
           <X  strokeWidth={2.5} onClick={() => onClose()} aria-controls="slider" />
@@ -33,7 +34,19 @@ export function Drawer({ isOpen, onClose }: Props) {
         </header>
 
         <section className={styles.content}>
-
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
+          <ProductInCart />
         </section>
 
         <footer className={styles.footer}>

@@ -5,11 +5,20 @@
   gap: 1rem;
 }
 
+.wrapper img {
+  width: 90px;
+  height: 90px;
+  aspect-ratio: 1/1;
+  border: 0;
+}
+
 .content {
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 1rem;
+  padding-bottom: 1.5rem;
 }
 
 .content .header {
@@ -17,5 +26,96 @@
   flex: 1;
   display: flex;
   align-items: start;
-  gap: 1.75rem;
+  gap: 1rem;
+}
+
+.header .titleProduct h4 {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/16px var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0-7);
+  color: var(--azul-universe-darkest);
+}
+
+.removeItem {
+  border-radius: 50%;
+  background: transparent;
+  border: 0;
+  transition: all 0.4s;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeItem svg {
+  width: 1rem;
+  height: 1rem;
+  transition: all 0.4s;
+
+}
+
+.removeItem:hover {
+  background: var(--azul-universe-lightest);
+}
+
+.removeItem:hover svg {
+  color: var(--aux-vermelho);
+}
+
+.content .footer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* INPUT AMOUNT SAME PRODUCTS */
+
+.amountItems {
+  max-width: 100px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--azul-universe-light);
+  border-radius: 20px;
+  padding: 0.5rem 0.875rem;
+}
+
+.amountItems button {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--rosa-2b-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.amountItems button:hover svg {
+  scale: 1.2;
+  transition: scale 0.4s;
+}
+
+.amountItems button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.amountItems button:disabled {
+  color: var(--rosa-2b-medium);
+}
+
+.amountItems input[type="number"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border: 0;
+  background: transparent;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
 }

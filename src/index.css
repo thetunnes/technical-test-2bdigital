@@ -256,7 +256,7 @@ a {
   color: var(--neutral-dark);
   text-transform: var(--unnamed-text-transform-uppercase);
   }
-  .caption-—-urbanist-—-12-pt {
+  .caption-—-urbanist-—-12-pt-pink {
   font-family: var(--unnamed-font-family-urbanist);
   font-style: var(--unnamed-font-style-normal);
   font-weight: var(--unnamed-font-weight-normal);
@@ -265,7 +265,7 @@ a {
   letter-spacing: var(--unnamed-character-spacing-0-6);
   color: var(--rosa-2b-dark);
   }
-  .caption-—-urbanist-—-12-pt {
+  .caption-—-urbanist-—-12-pt-blue {
   font-family: var(--unnamed-font-family-urbanist);
   font-style: var(--unnamed-font-style-normal);
   font-weight: var(--unnamed-font-weight-normal);
@@ -274,7 +274,7 @@ a {
   letter-spacing: var(--unnamed-character-spacing-0-6);
   color: var(--azul-universe-darkest);
   }
-  .caption-—-urbanist-—-12-pt {
+  .caption-—-urbanist-—-12-pt-blue-bold {
   font-family: var(--unnamed-font-family-urbanist);
   font-style: var(--unnamed-font-style-normal);
   font-weight: var(--unnamed-font-weight-bold);
@@ -283,7 +283,7 @@ a {
   letter-spacing: var(--unnamed-character-spacing-0-6);
   color: var(--azul-universe-darkest);
   }
-  .caption-—-urbanist-—-12-pt {
+  .caption-—-urbanist-—-12-pt-gray {
   font-family: var(--unnamed-font-family-urbanist);
   font-style: var(--unnamed-font-style-normal);
   font-weight: var(--unnamed-font-weight-normal);
@@ -301,7 +301,7 @@ a {
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--neutral-lightest);
   }
-  .caption-—-urbanist-—-12-pt {
+  .caption-—-urbanist-—-12-pt-bold {
   font-family: var(--unnamed-font-family-urbanist);
   font-style: var(--unnamed-font-style-normal);
   font-weight: var(--unnamed-font-weight-bold);
