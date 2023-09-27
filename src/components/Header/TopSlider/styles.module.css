@@ -1,0 +1,32 @@
+@import '@/index.css';
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--azul-universe-darkest);
+  padding: 0.75rem 4rem;
+  border-bottom: 1px solid #54507367;
+
+  @media screen and (max-width: 520px) {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.boldPink {
+  color: var(--rosa-2b-dark);
+}
+
+.text {
+  flex: 1;
+  text-align: center;
+  color: var(--rosa-2b-medium);
+  font-size: var(--unnamed-font-size-14);
+}
+
+.arrow {
+  width: var(--unnamed-font-size-12);
+  height: var(--unnamed-font-size-12);
+  color: var(--azul-universe-dark);
+}
