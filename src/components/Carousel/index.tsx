@@ -8,7 +8,8 @@ import "./styles.css";
 
 export function Carousel() {
   return (
-    <Swiper
+    <div className="carousel-wrapper">
+      <Swiper
       slidesPerView={1}
       spaceBetween={50}
       pagination={{
@@ -29,5 +30,6 @@ export function Carousel() {
         <img src={BannerPrincipal} />
       </SwiperSlide>
     </Swiper>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+import { Menu } from "lucide-react"
 import { Cart } from "../Cart"
 import { TopSlider } from "./TopSlider"
 import styles from './styles.module.css'
@@ -20,6 +21,7 @@ export function Header() {
         <a className={styles.link}>acessórios</a>
         <a className={styles.link}>ofertas</a>
       </nav>
+      <Menu className={styles.menuMobile} />
 
       <Cart />
     </header>
