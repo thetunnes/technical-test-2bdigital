@@ -5,8 +5,7 @@ export default function ProductPage() {
 
   return (
     <>
-    
-    <p>Página do produto aqui {productId}</p>
+      <p>Página do produto aqui {productId}</p>
     </>
   )
 }

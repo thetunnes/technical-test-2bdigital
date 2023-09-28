@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import { Menu } from "lucide-react";
-import { Cart } from "../Cart";
-import { TopSlider } from "./TopSlider";
-import styles from "./styles.module.css";
-import Logo from "@/assets/logotipo.svg";
+import { Link } from 'react-router-dom'
+import { Menu } from 'lucide-react'
+import { Cart } from '../Cart'
+import { TopSlider } from './TopSlider'
+import styles from './styles.module.css'
+import Logo from '@/assets/logotipo.svg'
 
 export function Header() {
   return (
@@ -29,5 +29,5 @@ export function Header() {
         <Cart />
       </header>
     </>
-  );
+  )
 }

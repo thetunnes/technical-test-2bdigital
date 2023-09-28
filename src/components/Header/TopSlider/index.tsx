@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import styles from "./styles.module.css";
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import styles from './styles.module.css'
 
 export function TopSlider() {
   return (
@@ -11,5 +11,5 @@ export function TopSlider() {
       </p>
       <ChevronRight className={styles.arrow} />
     </div>
-  );
+  )
 }

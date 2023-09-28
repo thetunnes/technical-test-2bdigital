@@ -19,6 +19,7 @@
 
 .labels .label {
   width: max-content;
+  white-space: nowrap;
   border-radius: 2px;
   background: var(--azul-universe-dark) 0% 0% no-repeat padding-box;
   font: var(--unnamed-font-style-normal) normal 800 var(--unnamed-font-size-10)/var(--unnamed-line-spacing-12) var(--unnamed-font-family-urbanist);

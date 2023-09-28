@@ -1,5 +1,5 @@
-import styles from "./styles.module.css";
-import Logo2bdigital from "@/assets/logotipo-2bigital.svg";
+import styles from './styles.module.css'
+import Logo2bdigital from '@/assets/logotipo-2bigital.svg'
 
 export function Footer() {
   return (
@@ -17,5 +17,5 @@ export function Footer() {
         alt="2b digital, 2b escrito em rosa e digital em azul escuro."
       />
     </footer>
-  );
+  )
 }

@@ -4,7 +4,6 @@ import Home from './pages/Home'
 import ProductPage from './pages/Product'
 
 export function RoutesRoot() {
-
   return (
     <Routes>
       <Route path="" element={<BaseLayout />}>

@@ -1,6 +1,6 @@
-import { BrowserRouter } from "react-router-dom";
-import { RoutesRoot } from "./Routes";
-import { OpenDrawerProvider } from "./context/useOpenDrawer";
+import { BrowserRouter } from 'react-router-dom'
+import { RoutesRoot } from './Routes'
+import { OpenDrawerProvider } from './context/useOpenDrawer'
 
 export default function App() {
   return (
@@ -9,5 +9,5 @@ export default function App() {
         <RoutesRoot />
       </BrowserRouter>
     </OpenDrawerProvider>
-  );
+  )
 }

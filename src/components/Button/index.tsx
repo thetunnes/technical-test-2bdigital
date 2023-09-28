@@ -6,9 +6,11 @@ interface Props extends ComponentProps<'button'> {
 }
 
 export function Button({ variant = 'filled', children, ...props }: Props) {
-
   return (
-    <button className={variant === 'empty' ? styles.empty : styles.filled} {...props}>
+    <button
+      className={variant === 'empty' ? styles.empty : styles.filled}
+      {...props}
+    >
       {children}
     </button>
   )

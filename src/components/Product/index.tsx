@@ -1,25 +1,26 @@
-import { Button } from "../Button";
-import { IProduct, Size } from "@/@types/product";
-import { formatCurrency } from "@/libs/formatCurrency";
+import { Button } from '../Button'
+import { IProduct, Size } from '@/@types/product'
+import { formatCurrency } from '@/libs/formatCurrency'
 
-import styles from "./styles.module.css";
-import { useState } from "react";
-import { useStoreCart } from "@/store/cart";
-import { useNavigate } from "react-router-dom";
-import { useOpenDrawer } from "@/context/useOpenDrawer";
+import styles from './styles.module.css'
+import { useState } from 'react'
+import { useStoreCart } from '@/store/cart'
+import { useNavigate } from 'react-router-dom'
+import { useOpenDrawer } from '@/context/useOpenDrawer'
 
 interface Props {
-  product: IProduct;
+  product: IProduct
 }
 
 export function Product({ product }: Props) {
   const navigate = useNavigate()
   const { onIsOpen } = useOpenDrawer()
-  const { addToCart, addProductInPage } = useStoreCart(({ addProductInPage, addToCart }) => ({ addProductInPage, addToCart }))
-  const [selectedSize, setSelectedSize] = useState<Size | undefined>();
+  const { addToCart, addProductInPage } = useStoreCart(
+    ({ addProductInPage, addToCart }) => ({ addProductInPage, addToCart }),
+  )
+  const [selectedSize, setSelectedSize] = useState<Size | undefined>()
 
   function handleSelectProduct() {
-
     if (!selectedSize) {
       addProductInPage(product)
       navigate(`/${product.id}`)
@@ -32,19 +33,20 @@ export function Product({ product }: Props) {
       maxParcels: product.maxParcels,
       name: product.name,
       price: product.price,
-      selectedSize
+      selectedSize,
+      tags: product.tags,
     })
     onIsOpen(true)
   }
 
   const indexTagSale = product?.tags?.findIndex(
-    (tag) => tag.type === "sale"
-  ) as number;
-  const tagSale = product?.tags?.[indexTagSale] ?? null;
+    (tag) => tag.type === 'sale',
+  ) as number
+  const tagSale = product?.tags?.[indexTagSale] ?? null
 
   const discountPrice = tagSale
     ? product.price - product.price * (Number(tagSale.label.slice(0, -1)) / 100)
-    : null;
+    : null
 
   return (
     <div className={styles.product}>
@@ -87,7 +89,7 @@ export function Product({ product }: Props) {
             </div>
 
             <span className={styles.parcels}>
-              Em até {product.maxParcels}x de{" "}
+              Em até {product.maxParcels}x de{' '}
               <strong>
                 {formatCurrency(discountPrice / product.maxParcels)}
               </strong>
@@ -102,7 +104,7 @@ export function Product({ product }: Props) {
             </div>
 
             <span className={styles.parcels}>
-              Em até {product.maxParcels}x de{" "}
+              Em até {product.maxParcels}x de{' '}
               <strong>
                 {formatCurrency(product.price / product.maxParcels)}
               </strong>
@@ -113,5 +115,5 @@ export function Product({ product }: Props) {
         <Button onClick={() => handleSelectProduct()}>comprar</Button>
       </footer>
     </div>
-  );
+  )
 }

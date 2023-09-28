@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useState } from 'react'
 
 interface OpenDrawerProps {
   isOpen: boolean
@@ -12,13 +12,11 @@ interface Props {
 }
 
 export function OpenDrawerProvider({ children }: Props) {
-
   const [isOpen, setIsOpen] = useState(false)
 
   function handleToggleOpen(b: boolean) {
     setIsOpen(b)
   }
-
 
   return (
     <OpenDrawer.Provider value={{ isOpen, onIsOpen: handleToggleOpen }}>
