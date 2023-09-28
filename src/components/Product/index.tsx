@@ -1,22 +1,41 @@
 import { Button } from "../Button";
-import { IProduct } from "@/@types/product";
+import { IProduct, Size } from "@/@types/product";
 import { formatCurrency } from "@/libs/formatCurrency";
 
 import styles from "./styles.module.css";
 import { useState } from "react";
 import { useStoreCart } from "@/store/cart";
+import { useNavigate } from "react-router-dom";
+import { useOpenDrawer } from "@/context/useOpenDrawer";
 
 interface Props {
   product: IProduct;
 }
 
 export function Product({ product }: Props) {
-  const addToCart = useStoreCart((state) => state.addToCart)
-  const [selectedSize, setSelectedSize] = useState<{
-    id: string;
-    label: string;
-    stock: number;
-} | undefined>();
+  const navigate = useNavigate()
+  const { onIsOpen } = useOpenDrawer()
+  const { addToCart, addProductInPage } = useStoreCart(({ addProductInPage, addToCart }) => ({ addProductInPage, addToCart }))
+  const [selectedSize, setSelectedSize] = useState<Size | undefined>();
+
+  function handleSelectProduct() {
+
+    if (!selectedSize) {
+      addProductInPage(product)
+      navigate(`/${product.id}`)
+      return
+    }
+
+    addToCart({
+      id: product.id,
+      imageUrl: product.imageUrl,
+      maxParcels: product.maxParcels,
+      name: product.name,
+      price: product.price,
+      selectedSize
+    })
+    onIsOpen(true)
+  }
 
   const indexTagSale = product?.tags?.findIndex(
     (tag) => tag.type === "sale"
@@ -31,7 +50,7 @@ export function Product({ product }: Props) {
     <div className={styles.product}>
       <div className={styles.labels}>
         {product?.tags?.map((tag) => (
-          <label className={styles.label} data-type={tag.type}>
+          <label className={styles.label} data-type={tag.type} key={tag.label}>
             {tag.label}
           </label>
         ))}
@@ -46,6 +65,7 @@ export function Product({ product }: Props) {
               onClick={() => setSelectedSize(size)}
               data-active={selectedSize === size}
               disabled={!size.stock}
+              key={size.id}
             >
               {size.label}
             </button>
@@ -90,7 +110,7 @@ export function Product({ product }: Props) {
           </>
         )}
 
-        <Button onClick={() => addToCart(product)}>comprar</Button>
+        <Button onClick={() => handleSelectProduct()}>comprar</Button>
       </footer>
     </div>
   );

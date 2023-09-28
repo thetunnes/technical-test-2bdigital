@@ -49,7 +49,7 @@ export function CarouselProducts({ products, title }: Props) {
         }}
       >
         {products.map((product) => (
-          <SwiperSlide>
+          <SwiperSlide key={product.id}>
             <Product product={product} />
           </SwiperSlide>
         ))}

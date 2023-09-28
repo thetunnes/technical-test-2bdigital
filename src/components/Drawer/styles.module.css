@@ -58,6 +58,8 @@
   flex: 1;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  display: flex;
+  flex-direction: column;
 }
 
 .content::-webkit-scrollbar {
@@ -89,4 +91,23 @@
 
 .totalPrice {
   font-weight: var(--unnamed-font-weight-bold);
+}
+
+
+ /* STYLES TO CART IS EMPTY */
+
+ .emptyCart {
+  width: 70%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 2.25rem;
+
+}
+
+.emptyCart p, .emptyCart h4 {
+  text-align: center;
 }

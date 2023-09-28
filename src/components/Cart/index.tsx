@@ -1,24 +1,24 @@
-import { useState } from "react";
 import { CartIcon } from "./Icon";
 import styles from "./styles.module.css";
 import { Drawer } from "../Drawer";
 import { useStoreCart } from "@/store/cart";
+import { useOpenDrawer } from "@/context/useOpenDrawer";
 
 export function Cart() {
   const amountProducts = useStoreCart((state) => state.amount)
-  const [openDrawer, setOpenDrawer] = useState(false);
-
+  const { isOpen, onIsOpen } = useOpenDrawer()
+  
   return (
     <>
       <button
         className={styles.buttonCart}
-        onClick={() => setOpenDrawer(true)}
+        onClick={() => onIsOpen(true)}
         aria-controls="slider"
       >
         <CartIcon className={styles.cartIcon} />
         <span className={styles.amountItems}>{amountProducts}</span>
       </button>
-      <Drawer isOpen={openDrawer} onClose={() => setOpenDrawer(false)} />
+      <Drawer isOpen={isOpen} onClose={() => onIsOpen(false)} />
     </>
   );
 }

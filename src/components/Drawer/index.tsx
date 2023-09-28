@@ -3,6 +3,7 @@ import { X } from 'lucide-react'
 import { Button } from '../Button'
 import styles from './styles.module.css'
 import { ProductInCart } from '../Cart/ProductInCart'
+import { useStoreCart } from '@/store/cart'
 
 interface Props {
   isOpen: boolean
@@ -10,9 +11,10 @@ interface Props {
 }
 
 export function Drawer({ isOpen, onClose }: Props) {
-
+  const products = useStoreCart((state) => state.products)
   const overlayRef = useRef(null);
 
+  console.log(products)
   function handleOverlayClick(event: MouseEvent<HTMLDivElement>) {
     if (event.target === overlayRef.current) {
       onClose();
@@ -34,19 +36,15 @@ export function Drawer({ isOpen, onClose }: Props) {
         </header>
 
         <section className={styles.content}>
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
-          <ProductInCart />
+          {products.length ? products.map((product) => (
+            <ProductInCart product={product} key={`${product.id}-${product.selectedSize.id}`} />
+          )) : (
+            <div className={styles.emptyCart}>
+              <h4 className="sub-01-—-urbanist-—-18-pt">Sua sacola está vazia!</h4>
+              <p className="body-02-—-urbanist-—-14-pt">Continue navegando em nossa loja para descobrir promoções e os melhores produtos!</p>
+              <Button onClick={onClose}>continuar comprando</Button>
+            </div>
+          )}
         </section>
 
         <footer className={styles.footer}>

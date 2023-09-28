@@ -68,11 +68,11 @@ export function ProductsLaunch() {
         name: "Tênis Vans Edição Limitada 2bdigital Rosa/Rosa",
         price: 549,
         sizes: [
-          { id: "medium", label: "34", stock: 4 },
-          { id: "large", label: "36", stock: 2 },
-          { id: "big", label: "38", stock: 4 },
-          { id: "extra-large", label: "40", stock: 4 },
-          { id: "small", label: "42", stock: 0 },
+          { id: "34", label: "34", stock: 4 },
+          { id: "36", label: "36", stock: 2 },
+          { id: "38", label: "38", stock: 4 },
+          { id: "40", label: "40", stock: 4 },
+          { id: "42", label: "42", stock: 0 },
         ],
         tags: [
           { type: "sale", label: "30%" },
