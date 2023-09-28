@@ -53,7 +53,7 @@ export function Drawer({ isOpen, onClose }: Props) {
             <p className={styles.totalPrice}>R$ 168,70</p>
           </div>
 
-          <Button>finalizar compra</Button>
+          <Button disabled={!products.length}>{products.length ? 'finalizar compra' : 'não tem produtos'}</Button>
         </footer>
       </div>
     </div>

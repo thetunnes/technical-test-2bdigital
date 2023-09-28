@@ -3,7 +3,7 @@
 
 .footer {
   background: var(--azul-universe-lightest) 0% 0% no-repeat padding-box;
-  padding: 3.125rem 4rem 3.125rem 4rem;
+  padding: var(--padding-layout-large-device-footer);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,6 +11,7 @@
 
   @media screen and (max-width: 520px) {
     flex-direction: column;
+    padding: var(--padding-layout-small-device-footer);
   }
 }
 

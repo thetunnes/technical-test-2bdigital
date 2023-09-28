@@ -1,5 +1,18 @@
 :root {
 
+  /* Spacing */
+
+  --padding-layout-large-device-header: 1.25rem 6rem 1.5rem 6rem;
+  --padding-layout-small-device-header: 1.25rem 4rem 1.5rem 4rem;
+
+  --padding-layout-large-device-carousel: 3.125rem 4rem 1.5rem 4rem;
+  --padding-layout-small-device-carousel: 3.125rem 2rem 1.5rem 2rem;
+
+  --padding-layout-large-device-footer: 3.125rem 4rem 3.125rem 4rem;
+  --padding-layout-small-device-footer: 3.125rem 2rem 3.125rem 2rem;
+
+
+
   /* Colors: */
   --azul-universe-lightest: #F8F7FC;
   --azul-universe-light: #D9D8E6;

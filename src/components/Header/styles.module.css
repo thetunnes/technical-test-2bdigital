@@ -10,7 +10,7 @@
   padding: 1.25rem 6rem 1.5rem 6rem;
 
   @media screen and (max-width: 520px) {
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
 }
 

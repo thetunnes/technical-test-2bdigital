@@ -6,7 +6,11 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 3.125rem 4rem 1.5rem 4rem;
+  padding: var(--padding-layout-large-device-carousel);
+
+  @media screen and (max-width: 520px) {
+    padding: var(--padding-layout-small-device-carousel);
+  }
 }
 
 .wrapper > section {
