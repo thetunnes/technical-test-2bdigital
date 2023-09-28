@@ -4,12 +4,14 @@ import { formatCurrency } from "@/libs/formatCurrency";
 
 import styles from "./styles.module.css";
 import { useState } from "react";
+import { useStoreCart } from "@/store/cart";
 
 interface Props {
   product: IProduct;
 }
 
 export function Product({ product }: Props) {
+  const addToCart = useStoreCart((state) => state.addToCart)
   const [selectedSize, setSelectedSize] = useState<{
     id: string;
     label: string;
@@ -88,7 +90,7 @@ export function Product({ product }: Props) {
           </>
         )}
 
-        <Button>comprar</Button>
+        <Button onClick={() => addToCart(product)}>comprar</Button>
       </footer>
     </div>
   );
