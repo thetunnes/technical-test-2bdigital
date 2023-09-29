@@ -13,6 +13,9 @@ export default function ProductPage() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
+    if (productInPage) {
+      document.title = `2bstore | ${productInPage.name}`
+    }
   }, [])
 
   if (productInPage?.id !== productId) {
