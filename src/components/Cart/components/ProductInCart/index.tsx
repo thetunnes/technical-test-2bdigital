@@ -3,8 +3,8 @@ import styles from './styles.module.css'
 import { useRef } from 'react'
 import { IProduct, Size } from '@/@types/product'
 import { useStoreCart } from '@/store/cart'
-import { formatCurrency } from '@/libs/formatCurrency'
-import { calcDiscount } from '@/libs/calcDiscount'
+import { formatCurrency } from '@/utils/formatCurrency'
+import { calcDiscount } from '@/utils/calcDiscount'
 
 interface Product extends Omit<IProduct, 'sizes' | 'tag'> {
   selectedSize: Size

@@ -1,5 +1,5 @@
 import { IProduct, Size } from '@/@types/product'
-import { calcDiscount } from '@/libs/calcDiscount'
+import { calcDiscount } from '@/utils/calcDiscount'
 import { create } from 'zustand'
 
 interface ProductToAdd extends Omit<IProduct, 'sizes' | 'tag'> {

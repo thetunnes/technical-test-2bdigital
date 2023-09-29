@@ -1,4 +1,4 @@
-import { dynamicMaskCEP } from '@/libs/formatInput'
+import { dynamicMaskCEP } from '@/utils/formatInput'
 import { useState } from 'react'
 
 import styles from './styles.module.css'

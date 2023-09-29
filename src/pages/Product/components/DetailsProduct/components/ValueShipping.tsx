@@ -1,4 +1,4 @@
-import { formatCurrency } from '@/libs/formatCurrency'
+import { formatCurrency } from '@/utils/formatCurrency'
 import styles from './styles.module.css'
 
 interface Props {

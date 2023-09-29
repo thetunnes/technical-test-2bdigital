@@ -4,7 +4,7 @@ import { Button } from '../Button'
 import styles from './styles.module.css'
 import { ProductInCart } from '../Cart/components/ProductInCart'
 import { useStoreCart } from '@/store/cart'
-import { formatCurrency } from '@/libs/formatCurrency'
+import { formatCurrency } from '@/utils/formatCurrency'
 
 interface Props {
   isOpen: boolean
