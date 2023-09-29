@@ -2,6 +2,7 @@ import { Carousel } from '@/components/Carousel'
 import { CarouselTypeProducts } from '@/components/CarouselTypeProducts'
 import { ProductsBestsSaller } from '@/components/ProductsBestsSaller'
 import { ProductsLaunch } from '@/components/ProductsLaunch'
+import { ProductsUnmissable } from '@/components/ProductsUnmissable'
 import { useEffect } from 'react'
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <ProductsLaunch />
       <ProductsBestsSaller />
       <CarouselTypeProducts />
+      <ProductsUnmissable />
     </>
   )
 }

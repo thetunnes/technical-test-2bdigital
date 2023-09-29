@@ -6,6 +6,7 @@ import { CarouselPictures } from './components/CarouselPictures'
 import { DetailsProduct } from './components/DetailsProduct'
 
 import styles from './styles.module.css'
+import { ProductsBestsSaller } from '@/components/ProductsBestsSaller'
 
 export default function ProductPage() {
   const { productId } = useParams()
@@ -62,6 +63,8 @@ export default function ProductPage() {
           </div>
         </section>
       )}
+
+      <ProductsBestsSaller />
     </>
   )
 }
