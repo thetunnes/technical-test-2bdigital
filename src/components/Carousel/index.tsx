@@ -18,7 +18,7 @@ export function Carousel() {
         }}
         pagination={{
           clickable: true,
-          renderBullet: function (index, className) {
+          renderBullet: function (_, className) {
             return `<span class="${className}"></span>`
           },
         }}
