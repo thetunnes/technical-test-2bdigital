@@ -20,10 +20,18 @@ export function DetailsProduct({ product }: Props) {
   const { onIsOpen } = useOpenDrawer()
   const addToCart = useStoreCart((state) => state.addToCart)
   const [selectedSize, setSelectedSize] = useState<ISize | undefined>()
+  const [showShipping, setShowShipping] = useState(false)
+
+  const indexTagFreeShipping = product?.tags?.findIndex(
+    (tag) => tag.type === 'free shipping',
+  ) as number
+
+  const tagFreeShipping = product?.tags?.[indexTagFreeShipping] ?? null
 
   const indexTagSale = product?.tags?.findIndex(
     (tag) => tag.type === 'sale',
   ) as number
+
   const tagSale = product?.tags?.[indexTagSale] ?? null
 
   const discountPrice = tagSale
@@ -34,7 +42,6 @@ export function DetailsProduct({ product }: Props) {
     <section className={styles.detailsProduct}>
       <h5 className="h6-—-urbanist-—-20-pt">{product?.name}</h5>
       <span className="caption-—-urbanist-—-12-pt-blue">Ref.: 2B2022TIB</span>
-
       {discountPrice ? (
         <div className={styles.priceProduct}>
           <p className={styles.totalPrice}>{formatCurrency(product.price)}</p>
@@ -61,7 +68,6 @@ export function DetailsProduct({ product }: Props) {
           </div>
         </div>
       )}
-
       <div className={styles.selectSize}>
         <header>
           <h6 className="caption-—-urbanist-—-12-pt-blue-bold">Tamanho</h6>
@@ -79,7 +85,6 @@ export function DetailsProduct({ product }: Props) {
           ))}
         </div>
       </div>
-
       <Button
         onClick={() => {
           addToCart({
@@ -97,19 +102,21 @@ export function DetailsProduct({ product }: Props) {
       >
         adicionar ao carrinho
       </Button>
+      <PriceShipping onShowShipping={setShowShipping} />
+      {tagFreeShipping && showShipping && (
+        <ValueShipping name="Frete Expresso" rangeDate="2 à 6 dias" />
+      )}
 
-      <PriceShipping />
-
-      <ValueShipping
-        name="Frete Expresso"
-        rangeDate="2 à 6 dias"
-        price={19.9}
-      />
-      <ValueShipping
-        name="Frete Expresso"
-        rangeDate="2 à 6 dias"
-        price={19.9}
-      />
+      {!tagFreeShipping && showShipping && (
+        <>
+          <ValueShipping
+            name="Frete Expresso"
+            rangeDate="2 à 6 dias"
+            price={19.9}
+          />
+          <ValueShipping name="Normal" rangeDate="4 à 15 dias" price={19.9} />
+        </>
+      )}
     </section>
   )
 }

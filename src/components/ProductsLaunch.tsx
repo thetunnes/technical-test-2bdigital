@@ -1,7 +1,7 @@
-import TShirt from '@/assets/IMG-1@2x.png'
-import Ecobag from '@/assets/IMG-8@2x.png'
-import Moletom from '@/assets/IMG-22@2x.png'
-import Sneaker from '@/assets/IMG-21@2x.png'
+import TShirt from '@/assets/TShirt@2x.png'
+import Ecobag from '@/assets/Ecobag@2x.png'
+import Moletom from '@/assets/Sweat-Shirt@2x.png'
+import Shoes from '@/assets/Shoes@2x.png'
 
 import { CarouselProducts } from './CarouselProducts'
 
@@ -68,7 +68,7 @@ export function ProductsLaunch() {
         {
           id: '4cee16d8-45a5-423d-9dca-3d841816f7a8',
           maxParcels: 1,
-          imageUrl: Sneaker,
+          imageUrl: Shoes,
           name: 'Tênis Vans Edição Limitada 2bdigital Rosa/Rosa',
           price: 549,
           sizes: [

@@ -4,7 +4,7 @@ import styles from './styles.module.css'
 interface Props {
   name: string
   rangeDate: string
-  price: number
+  price?: number
 }
 
 export function ValueShipping({ name, rangeDate, price }: Props) {
@@ -15,7 +15,13 @@ export function ValueShipping({ name, rangeDate, price }: Props) {
         <span className="caption-—-urbanist-—-12-pt-blue">{rangeDate}</span>
       </div>
 
-      <p className="body-02-—-urbanist—-14-pt-bold">{formatCurrency(price)}</p>
+      {price ? (
+        <p className="body-02-—-urbanist—-14-pt-bold">
+          {formatCurrency(price)}
+        </p>
+      ) : (
+        <p className="body-02-—-urbanist—-14-pt-bold">Grátis</p>
+      )}
     </div>
   )
 }

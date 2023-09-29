@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper/modules'
-import BannerPrincipal from '@/assets/banner principal.png'
+import BannerPrincipal from '@/assets/banner principal@2x.png'
 
 import 'swiper/css'
 import 'swiper/css/pagination'

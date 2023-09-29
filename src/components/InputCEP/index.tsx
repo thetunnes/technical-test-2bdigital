@@ -1,21 +1,23 @@
 import { dynamicMaskCEP } from '@/utils/formatInput'
-import { useState } from 'react'
+import { ComponentProps } from 'react'
 
 import styles from './styles.module.css'
 
-interface Props {
+interface Props extends ComponentProps<'input'> {
   error?: string
 }
 
-export function InputCEP({ error }: Props) {
-  const [cep, setCep] = useState('')
-
+export function InputCEP({ error, ...props }: Props) {
   return (
     <div className={styles.wrapperInput}>
       <input
+        {...props}
         type="text"
-        onChange={({ target }) => setCep(dynamicMaskCEP(target.value))}
-        value={cep}
+        onChange={(e) => {
+          e.target.value = dynamicMaskCEP(e.target.value)
+
+          return props.onChange ? props.onChange(e) : undefined
+        }}
         className={`${styles.field} body-02-—-urbanist-—-14-pt`}
         placeholder="00000 - 000"
         data-error={!!error}

@@ -1,5 +1,5 @@
-import TShirt from '@/assets/IMG-1@2x.png'
-import TShirtPink from '@/assets/IMG-14@2x.png'
+import TShirt from '@/assets/TShirt@2x.png'
+import TShirtPink from '@/assets/TShirt-Pink@2x.png'
 import { CarouselProducts } from './CarouselProducts'
 
 export function ProductsUnmissable() {
