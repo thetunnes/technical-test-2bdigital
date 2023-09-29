@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { IProduct, Size } from '@/@types/product'
 import { useStoreCart } from '@/store/cart'
 import { formatCurrency } from '@/libs/formatCurrency'
+import { calcDiscount } from '@/libs/calcDiscount'
 
 interface Product extends Omit<IProduct, 'sizes' | 'tag'> {
   selectedSize: Size
@@ -23,6 +24,15 @@ export function ProductInCart({ product }: Props) {
     }),
   )
   const amountRef = useRef<HTMLInputElement>(null)
+
+  const indexTagSale = product?.tags?.findIndex(
+    (tag) => tag.type === 'sale',
+  ) as number
+  const tagSale = product?.tags?.[indexTagSale] ?? null
+
+  const discountPrice = tagSale
+    ? calcDiscount(tagSale.label, product.price)
+    : null
 
   return (
     <div className={styles.wrapper}>
@@ -45,13 +55,16 @@ export function ProductInCart({ product }: Props) {
         <footer className={styles.footer}>
           <div className={styles.amountItems}>
             <button
-              onClick={() => removeUnitProduct(product.id)}
+              onClick={() =>
+                removeUnitProduct(product.id, product.selectedSize.id)
+              }
               disabled={product.amount < 2}
             >
               <Minus />
             </button>
             <input
               type="number"
+              id={`${product.id}-${product.selectedSize.id}`}
               ref={amountRef}
               value={product.amount}
               disabled
@@ -65,9 +78,26 @@ export function ProductInCart({ product }: Props) {
           </div>
 
           <div>
-            <p className="body-02-—-urbanist—-14-pt-bold">
-              {formatCurrency(product.price * product.amount)}
-            </p>
+            {discountPrice ? (
+              <>
+                <div className={styles.price}>
+                  <span className={styles.fullPrice}>
+                    {formatCurrency(product.price)}
+                  </span>
+                  <p className="body-02-—-urbanist—-14-pt-bold">
+                    {formatCurrency(discountPrice)}
+                  </p>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={styles.price}>
+                  <p className="body-02-—-urbanist—-14-pt-bold">
+                    {formatCurrency(product.price)}
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         </footer>
       </div>

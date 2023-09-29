@@ -1,4 +1,4 @@
-import { CartIcon } from './Icon'
+import { CartIcon } from './components/Icon'
 import styles from './styles.module.css'
 import { Drawer } from '../Drawer'
 import { useStoreCart } from '@/store/cart'

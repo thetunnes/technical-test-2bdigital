@@ -2,7 +2,7 @@ import { MouseEvent, useRef } from 'react'
 import { X } from 'lucide-react'
 import { Button } from '../Button'
 import styles from './styles.module.css'
-import { ProductInCart } from '../Cart/ProductInCart'
+import { ProductInCart } from '../Cart/components/ProductInCart'
 import { useStoreCart } from '@/store/cart'
 import { formatCurrency } from '@/libs/formatCurrency'
 

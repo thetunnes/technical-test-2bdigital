@@ -120,3 +120,18 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none;
 }
+
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.fullPrice {
+  flex: 1;
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-12)/var(--unnamed-line-spacing-14) var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0-6);
+  color: var(--azul-universe-dark);
+  text-align: right;
+  text-decoration: line-through;
+}

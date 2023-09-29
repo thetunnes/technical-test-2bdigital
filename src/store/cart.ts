@@ -1,4 +1,5 @@
 import { IProduct, Size } from '@/@types/product'
+import { calcDiscount } from '@/libs/calcDiscount'
 import { create } from 'zustand'
 
 interface ProductToAdd extends Omit<IProduct, 'sizes' | 'tag'> {
@@ -17,7 +18,7 @@ interface CartState {
 
   addToCart: (product: ProductToAdd) => void
 
-  removeUnitProduct: (productId: string) => void
+  removeUnitProduct: (productId: string, sizeId: string) => void
 
   removeFromCart: (productId: string, sizeId: string) => void
 
@@ -34,8 +35,15 @@ export const useStoreCart = create<CartState>((set, get) => ({
     const { products } = get()
 
     return products.reduce((prevPay, product) => {
-      prevPay += product.price * product.amount
+      const indexTagSale = product?.tags?.findIndex(
+        (tag) => tag.type === 'sale',
+      ) as number
+      const tagSale = product?.tags?.[indexTagSale] ?? null
+      const price = tagSale
+        ? calcDiscount(tagSale.label, product.price)
+        : product.price
 
+      prevPay += price * product.amount
       return prevPay
     }, 0)
   },
@@ -62,13 +70,14 @@ export const useStoreCart = create<CartState>((set, get) => ({
     })
   },
 
-  removeUnitProduct: (productId: string) => {
+  removeUnitProduct: (productId: string, sizeId: string) => {
     const { products } = get()
     const indexProduct = products.findIndex(
-      (product) => product.id === productId,
+      (product) =>
+        product.id === productId && product.selectedSize.id === sizeId,
     )
 
-    if (indexProduct >= 0) {
+    if (indexProduct >= 0 && products[indexProduct].amount > 1) {
       products[indexProduct].amount -= 1
     }
 

@@ -18,12 +18,6 @@ export function CarouselProducts({ products, title }: Props) {
     <div className="wrapper">
       <h2 className="title">{title}</h2>
       <section>
-        <div className="swiper-button new-swiper-button-next">
-          <ArrowRight />
-        </div>
-        <div className="swiper-button new-swiper-button-prev">
-          <ArrowLeft />
-        </div>
         <Swiper
           navigation={{
             nextEl: '.new-swiper-button-next',
@@ -45,7 +39,14 @@ export function CarouselProducts({ products, title }: Props) {
               spaceBetween: 32,
             },
           }}
+          className={title}
         >
+          <div className="swiper-button new-swiper-button-next">
+            <ArrowRight />
+          </div>
+          <div className="swiper-button new-swiper-button-prev">
+            <ArrowLeft />
+          </div>
           {products.map((product) => (
             <SwiperSlide key={product.id} className="swiper-products">
               <Product product={product} />

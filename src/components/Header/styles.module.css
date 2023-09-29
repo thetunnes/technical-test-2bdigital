@@ -59,4 +59,5 @@
 
 .link[data-active="true"] {
   color: var(--rosa-2b-dark);
+  transition: color 0.2s ease-in;
 }

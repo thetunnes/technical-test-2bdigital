@@ -1,14 +1,15 @@
+import { MouseEvent, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { Button } from '../Button'
+import { Size } from '../Size'
 import { IProduct, Size as ISize } from '@/@types/product'
 import { formatCurrency } from '@/libs/formatCurrency'
-
-import styles from './styles.module.css'
-import { useState } from 'react'
-import { useStoreCart } from '@/store/cart'
-import { useNavigate } from 'react-router-dom'
-import { useOpenDrawer } from '@/context/useOpenDrawer'
-import { Size } from '../Size'
 import { calcDiscount } from '@/libs/calcDiscount'
+
+import { useStoreCart } from '@/store/cart'
+import { useOpenDrawer } from '@/context/useOpenDrawer'
+import styles from './styles.module.css'
 
 interface Props {
   product: IProduct
@@ -22,23 +23,31 @@ export function Product({ product }: Props) {
   )
   const [selectedSize, setSelectedSize] = useState<ISize | undefined>()
 
-  function handleSelectProduct() {
-    if (!selectedSize) {
+  function handleOpenPageProduct(
+    event: MouseEvent<HTMLDivElement, globalThis.MouseEvent>,
+  ) {
+    const target = event.target as HTMLElement
+
+    if (
+      target.tagName !== 'BUTTON' ||
+      (!selectedSize && target.id === 'submit')
+    ) {
       addProductInPage(product)
       navigate(`/${product.id}`)
-      return
     }
 
-    addToCart({
-      id: product.id,
-      imageUrl: product.imageUrl,
-      maxParcels: product.maxParcels,
-      name: product.name,
-      price: product.price,
-      selectedSize,
-      tags: product.tags,
-    })
-    onIsOpen(true)
+    if (selectedSize && target.id === 'submit') {
+      addToCart({
+        id: product.id,
+        imageUrl: product.imageUrl,
+        maxParcels: product.maxParcels,
+        name: product.name,
+        price: product.price,
+        selectedSize,
+        tags: product.tags,
+      })
+      onIsOpen(true)
+    }
   }
 
   const indexTagSale = product?.tags?.findIndex(
@@ -51,7 +60,7 @@ export function Product({ product }: Props) {
     : null
 
   return (
-    <div className={styles.product}>
+    <div className={styles.product} onClick={(e) => handleOpenPageProduct(e)}>
       <div className={styles.labels}>
         {product?.tags?.map((tag) => (
           <label className={styles.label} data-type={tag.type} key={tag.label}>
@@ -61,7 +70,7 @@ export function Product({ product }: Props) {
       </div>
 
       <div className={styles.content}>
-        <img src={product.imageUrl} className={styles.picture} />
+        <img src={product.imageUrl} className={styles.picture} alt="" />
         <nav className={styles.sizes}>
           {product?.sizes.map((size) => (
             <Size
@@ -111,7 +120,7 @@ export function Product({ product }: Props) {
           </>
         )}
 
-        <Button onClick={() => handleSelectProduct()}>comprar</Button>
+        <Button id="submit">comprar</Button>
       </footer>
     </div>
   )
