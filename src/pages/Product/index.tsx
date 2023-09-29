@@ -16,7 +16,7 @@ export default function ProductPage() {
     if (productInPage) {
       document.title = `2bstore | ${productInPage.name}`
     }
-  }, [])
+  }, [productInPage])
 
   if (productInPage?.id !== productId) {
     return <NotFoundProduct />
