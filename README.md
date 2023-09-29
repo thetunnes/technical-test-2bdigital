@@ -1,6 +1,6 @@
 # Sobre o projeto 2bdigital
 
-> O projeto pode ser acessado em produção => https://technical-test-2bdigital.vercel.app
+> O projeto pode ser acessado por aqui. => https://technical-test-2bdigital.vercel.app
 
 ## Requisitos para rodar o projeto
 
