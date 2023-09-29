@@ -1,0 +1,38 @@
+
+
+.swiperPictureProduct .swiper-slide > img {
+  /* width: 50%; */
+  aspect-ratio: 1/1;
+}
+
+.swiperPictureProduct .swiper-pagination {
+  max-width: 64px;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.swiper-pagination .image-pagination-bullet {
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+  border: 1px solid var(--neutral-light);
+
+  @media screen and (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.swiper-pagination .image-pagination-bullet img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.image-pagination-bullet-active {
+
+  background: var(--neutral-light);
+}

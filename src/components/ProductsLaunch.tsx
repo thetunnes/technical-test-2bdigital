@@ -1,7 +1,7 @@
-import TShirt from '@/assets/IMG-1.png'
-import Ecobag from '@/assets/IMG-8.png'
-import Moletom from '@/assets/IMG-22.png'
-import Sneaker from '@/assets/IMG-21.png'
+import TShirt from '@/assets/IMG-1@2x.png'
+import Ecobag from '@/assets/IMG-8@2x.png'
+import Moletom from '@/assets/IMG-22@2x.png'
+import Sneaker from '@/assets/IMG-21@2x.png'
 
 import { CarouselProducts } from './CarouselProducts'
 

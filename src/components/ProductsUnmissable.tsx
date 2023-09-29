@@ -1,10 +1,11 @@
-import TShirt from '@/assets/IMG-1.png'
+import TShirt from '@/assets/IMG-1@2x.png'
+import TShirtPink from '@/assets/IMG-14@2x.png'
 import { CarouselProducts } from './CarouselProducts'
 
 export function ProductsUnmissable() {
   return (
     <CarouselProducts
-      title="os mais vendidos"
+      title="ofertas imperdíveis"
       products={[
         {
           id: 'c35d55c1-d7a2-446e-b6a1-fcb586707869',
@@ -12,6 +13,7 @@ export function ProductsUnmissable() {
           imageUrl: TShirt,
           name: 'T-shirt Unissex 2b Yourself Preta Estampa Grafismo',
           price: 60,
+          images: [TShirt, TShirtPink],
           sizes: [
             { id: 'small', label: 'P', stock: 0 },
             { id: 'medium', label: 'M', stock: 4 },
@@ -31,6 +33,7 @@ export function ProductsUnmissable() {
           imageUrl: TShirt,
           name: 'T-shirt Unissex 2b Yourself Preta Estampa Grafismo',
           price: 152,
+          images: [TShirt],
           sizes: [
             { id: 'small', label: 'P', stock: 2 },
             { id: 'medium', label: 'M', stock: 0 },

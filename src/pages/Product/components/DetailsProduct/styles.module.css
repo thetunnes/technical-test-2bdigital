@@ -1,0 +1,70 @@
+@import '@/index.css';
+
+
+.detailsProduct {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailsProduct h5 {
+  margin-bottom: 0.75rem;
+}
+
+.priceProduct {
+  margin: 1rem 0 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--azul-universe-light);
+  border-bottom: 1px solid var(--azul-universe-light);
+}
+
+.priceProduct .totalPrice {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-21) var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0-7);
+  color: var(--azul-universe-darkest);
+  text-align: left;
+  text-decoration: line-through;
+}
+
+.priceProduct p {
+  margin-right: 0.5rem;
+}
+
+.priceProduct span {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-12)/var(--unnamed-line-spacing-14) var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0-6);
+  color: var(--azul-universe-darkest);
+}
+
+.priceProduct strong {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-12)/var(--unnamed-line-spacing-14) var(--unnamed-font-family-urbanist);
+  letter-spacing: var(--unnamed-character-spacing-0-6);
+  color: var(--rosa-2b-dark);
+}
+
+.parcels {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.selectSize {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.selectSize header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wrapperSize {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

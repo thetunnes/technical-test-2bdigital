@@ -1,5 +1,5 @@
 import { Button } from '../Button'
-import { IProduct, Size } from '@/@types/product'
+import { IProduct, Size as ISize } from '@/@types/product'
 import { formatCurrency } from '@/libs/formatCurrency'
 
 import styles from './styles.module.css'
@@ -7,6 +7,8 @@ import { useState } from 'react'
 import { useStoreCart } from '@/store/cart'
 import { useNavigate } from 'react-router-dom'
 import { useOpenDrawer } from '@/context/useOpenDrawer'
+import { Size } from '../Size'
+import { calcDiscount } from '@/libs/calcDiscount'
 
 interface Props {
   product: IProduct
@@ -18,7 +20,7 @@ export function Product({ product }: Props) {
   const { addToCart, addProductInPage } = useStoreCart(
     ({ addProductInPage, addToCart }) => ({ addProductInPage, addToCart }),
   )
-  const [selectedSize, setSelectedSize] = useState<Size | undefined>()
+  const [selectedSize, setSelectedSize] = useState<ISize | undefined>()
 
   function handleSelectProduct() {
     if (!selectedSize) {
@@ -45,7 +47,7 @@ export function Product({ product }: Props) {
   const tagSale = product?.tags?.[indexTagSale] ?? null
 
   const discountPrice = tagSale
-    ? product.price - product.price * (Number(tagSale.label.slice(0, -1)) / 100)
+    ? calcDiscount(tagSale.label, product.price)
     : null
 
   return (
@@ -62,15 +64,12 @@ export function Product({ product }: Props) {
         <img src={product.imageUrl} className={styles.picture} />
         <nav className={styles.sizes}>
           {product?.sizes.map((size) => (
-            <button
-              className={styles.size}
-              onClick={() => setSelectedSize(size)}
-              data-active={selectedSize === size}
-              disabled={!size.stock}
+            <Size
               key={size.id}
-            >
-              {size.label}
-            </button>
+              onSelectedSize={setSelectedSize}
+              selectedSize={selectedSize}
+              size={size}
+            />
           ))}
         </nav>
       </div>

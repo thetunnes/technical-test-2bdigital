@@ -34,10 +34,10 @@
   align-items: center;
 }
 
-.swiper-slide img {
-  display: block;
+.swiper:not(.swiperPictureProduct) .swiper-slide img {
+  /* display: block; */
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .title {

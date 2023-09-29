@@ -1,8 +1,8 @@
-import Bottons from '@/assets/IMG-12.png'
-import Mug from '@/assets/IMG-13.png'
-import TShirt from '@/assets/IMG-1.png'
-import TShirtPink from '@/assets/IMG-14.png'
-import WaterBottle from '@/assets/IMG-15.png'
+import Bottons from '@/assets/IMG-12@2x.png'
+import Mug from '@/assets/IMG-13@2x.png'
+import TShirt from '@/assets/IMG-1@2x.png'
+import TShirtPink from '@/assets/IMG-14@2x.png'
+import WaterBottle from '@/assets/IMG-15@2x.png'
 import { CarouselProducts } from './CarouselProducts'
 
 export function ProductsBestsSaller() {

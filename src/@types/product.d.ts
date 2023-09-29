@@ -12,4 +12,5 @@ export interface IProduct {
   tags?: Array<{ type: 'new' | 'sale' | 'free shipping'; label: string }>
   sizes: Array<Size>
   maxParcels: number
+  images?: Array<string>
 }
