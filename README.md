@@ -72,4 +72,11 @@ A aplicação possui diversos carroséis, alguns bem semelhantes e outros com um
 O componente Header foi bem simples de fazer, não criei um visual para a navegação do menu em uma versão mobile, porém ao menos ocultei a nav e adicionei um botão para abertura de um menu mobile (sem nenhuma ação adicionada a ele).
 
 #### Cart
-O Cart é responsável por exibir a quantidade de produtos possui no carrinho (essa informação é retirada do estado global criado com o Zustand) e também exibir ou ocultar o Drawer do carrinho de acordo com o estado retornado pelo `Context API`.
+O Cart é responsável por exibir a quantidade de produtos que estão no carrinho (essa informação é retirada do estado global criado com o Zustand) e também é o componente que determina se o Drawer do carrinho está aberto ou fechado, de acordo com o estado retornado pelo `Context API`.
+
+
+#### Price Shipping
+Esse componente deveria calcular o frete em relação ao CEP inserido, o ideal seria ter uma API o qual eu envio o CEP como paramêtro e é retornado as possibilidades de frete e seus valores para renderizar em tela. O que realmente foi feito é um Input com o seu valor formatado no modelo CEP que seta um estado, ele não verifica se o CEP existe, como também não faz calculo de valor nenhum, apenas verifica se o CEP possui os 8 números, se possuir exibe fretes fícticios, caso não possua uma mensagem de erro é exibida.
+
+#### Products List (BestSaller, Launch, Unmissable)
+Os produtos exibidos no carrossel, foram adicionados manualmente em array (ou seja, para cada carrossel foi adicionado um array de objetos onde cada objeto representa um produto. Na prática e no desenvolvimento de uma aplicação real para exibir essa lista de produtos criaria uma requisição a API, pegando a resposta dessa requisição direcionando os produtos para seus respectivos Carrossel.
