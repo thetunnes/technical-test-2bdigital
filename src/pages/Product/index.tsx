@@ -25,6 +25,40 @@ export default function ProductPage() {
         <CarouselPictures />
         <DetailsProduct product={productInPage!} />
       </div>
+
+      {!!productInPage?.description && (
+        <section className={styles.descriptionProduct}>
+          <div>
+            <h5 className="h6-—-urbanist-—-20-pt">Descrição</h5>
+            {typeof productInPage.description === 'string' && (
+              <p className="body-02-—-urbanist-—-14-pt">
+                {productInPage.description}
+              </p>
+            )}
+            {typeof productInPage.description === 'object' && (
+              <>
+                <p className="body-02-—-urbanist-—-14-pt">
+                  {productInPage.description.text}
+                </p>
+                <div>
+                  <p className="body-02-—-urbanist-—-14-pt">
+                    Descrição cor: {productInPage.description.color}
+                  </p>
+                  <p className="body-02-—-urbanist-—-14-pt">
+                    Peso: {productInPage.description.weight}
+                  </p>
+                  <p className="body-02-—-urbanist-—-14-pt">
+                    Composição: {productInPage.description.composition}
+                  </p>
+                  <p className="body-02-—-urbanist-—-14-pt">
+                    Fabricante: {productInPage.description.manufacturer}
+                  </p>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
     </>
   )
 }

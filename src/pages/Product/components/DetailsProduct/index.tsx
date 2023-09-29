@@ -10,6 +10,7 @@ import { useStoreCart } from '@/store/cart'
 
 import styles from './styles.module.css'
 import { PriceShipping } from './components/PriceShipping'
+import { ValueShipping } from './components/ValueShipping'
 
 interface Props {
   product: IProduct
@@ -98,6 +99,17 @@ export function DetailsProduct({ product }: Props) {
       </Button>
 
       <PriceShipping />
+
+      <ValueShipping
+        name="Frete Expresso"
+        rangeDate="2 à 6 dias"
+        price={19.9}
+      />
+      <ValueShipping
+        name="Frete Expresso"
+        rangeDate="2 à 6 dias"
+        price={19.9}
+      />
     </section>
   )
 }

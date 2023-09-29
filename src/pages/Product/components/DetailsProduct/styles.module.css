@@ -2,8 +2,14 @@
 
 
 .detailsProduct {
+  width: 100%;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 }
 
 .detailsProduct h5 {

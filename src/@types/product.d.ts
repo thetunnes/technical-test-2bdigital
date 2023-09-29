@@ -13,4 +13,13 @@ export interface IProduct {
   sizes: Array<Size>
   maxParcels: number
   images?: Array<string>
+  description?:
+    | string
+    | {
+        text?: string
+        color?: string
+        weight?: string
+        composition?: string
+        manufacturer?: string
+      }
 }

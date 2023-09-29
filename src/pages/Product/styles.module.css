@@ -15,3 +15,24 @@
     padding: var(--padding-layout-small-device-carousel);
   }
 }
+
+.descriptionProduct {
+  background: var(--rosa-2b-lightest) 0% 0% no-repeat padding-box;
+  padding: 3.25rem 0 4rem 15rem;
+
+  @media screen and (max-width: 1024px) {
+    padding: 3.25rem 4rem 4rem 4rem;
+  }
+}
+
+.descriptionProduct > div {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.descriptionProduct p {
+  text-align: justify;
+}

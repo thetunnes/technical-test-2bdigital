@@ -21,6 +21,8 @@ export function ProductsUnmissable() {
             { id: 'big', label: 'GG', stock: 4 },
             { id: 'extra-large', label: 'XG', stock: 4 },
           ],
+          description:
+            'T-shirt Unissex 2b Yourself Preta Estampa Grafismo Manga Curta. Desenvolvida em meia malha de algodão super cotton, a peça conta com a modelagem comfort, sendo um pouco mais ampla que a tradicional, além disso, na parte frontal exibe estampa localizada. As Camisetas 2b trazem o conforto extremo, ela é mais soltinha do corpo com corte reto e garante um caimento diferenciado ao vestir. Investir nessa camiseta é investir no essencial, no básico, e no atemporal. Descrição cor: Preta Peso: 0.268 Composição: 100% Algodao Fabricante: Hering Mercadoria: Nacional',
           tags: [
             { type: 'sale', label: '30%' },
             { type: 'new', label: 'Novo' },
@@ -41,6 +43,8 @@ export function ProductsUnmissable() {
             { id: 'big', label: 'GG', stock: 4 },
             { id: 'extra-large', label: 'XG', stock: 4 },
           ],
+          description:
+            'T-shirt Unissex 2b Yourself Preta Estampa Grafismo Manga Curta. Desenvolvida em meia malha de algodão super cotton, a peça conta com a modelagem comfort, sendo um pouco mais ampla que a tradicional, além disso, na parte frontal exibe estampa localizada. As Camisetas 2b trazem o conforto extremo, ela é mais soltinha do corpo com corte reto e garante um caimento diferenciado ao vestir. Investir nessa camiseta é investir no essencial, no básico, e no atemporal. Descrição cor: Preta Peso: 0.268 Composição: 100% Algodao Fabricante: Hering Mercadoria: Nacional',
           tags: [
             { type: 'sale', label: '30%' },
             { type: 'new', label: 'Novo' },
@@ -60,6 +64,13 @@ export function ProductsUnmissable() {
             { id: 'big', label: 'GG', stock: 4 },
             { id: 'extra-large', label: 'XG', stock: 4 },
           ],
+          description: {
+            text: `T-shirt Unissex 2b Yourself Preta Estampa Grafismo Manga Curta. Desenvolvida em meia malha de algodão super cotton, a peça conta com a modelagem comfort, sendo um pouco mais ampla que a tradicional, além disso, na parte frontal exibe estampa localizada. As Camisetas 2b trazem o conforto extremo, ela é mais soltinha do corpo com corte reto e garante um caimento diferenciado ao vestir. Investir nessa camiseta é investir no essencial, no básico, e no atemporal.`,
+            color: 'Preta',
+            weight: '0.268',
+            composition: '100% Algodao',
+            manufacturer: 'Hering',
+          },
           tags: [
             { type: 'sale', label: '30%' },
             { type: 'new', label: 'Novo' },
@@ -79,6 +90,8 @@ export function ProductsUnmissable() {
             { id: 'big', label: 'GG', stock: 0 },
             { id: 'extra-large', label: 'XG', stock: 4 },
           ],
+          description:
+            'T-shirt Unissex 2b Yourself Preta Estampa Grafismo Manga Curta. Desenvolvida em meia malha de algodão super cotton, a peça conta com a modelagem comfort, sendo um pouco mais ampla que a tradicional, além disso, na parte frontal exibe estampa localizada. As Camisetas 2b trazem o conforto extremo, ela é mais soltinha do corpo com corte reto e garante um caimento diferenciado ao vestir. Investir nessa camiseta é investir no essencial, no básico, e no atemporal. Descrição cor: Preta Peso: 0.268 Composição: 100% Algodao Fabricante: Hering Mercadoria: Nacional',
           tags: [
             { type: 'sale', label: '30%' },
             { type: 'new', label: 'Novo' },

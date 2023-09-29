@@ -32,6 +32,13 @@ export function ProductsBestsSaller() {
             { id: 'extra-large', label: 'XG', stock: 4 },
           ],
           tags: [{ type: 'sale', label: '30%' }],
+          description: {
+            text: `T-shirt Unissex 2b Yourself Rosa Estampa Grafismo Manga Curta. Desenvolvida em meia malha de algodão super cotton, a peça conta com a modelagem comfort, sendo um pouco mais ampla que a tradicional, além disso, na parte frontal exibe estampa localizada. As Camisetas 2b trazem o conforto extremo, ela é mais soltinha do corpo com corte reto e garante um caimento diferenciado ao vestir. Investir nessa camiseta é investir no essencial, no básico, e no atemporal.`,
+            color: 'Rosa',
+            weight: '0.268',
+            composition: '100% Algodao',
+            manufacturer: 'Hering',
+          },
         },
         {
           id: 'c328f874-efa1-4066-9f4f-6ccd5fbfeae8',
