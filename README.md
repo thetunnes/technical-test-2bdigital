@@ -80,3 +80,7 @@ Esse componente deveria calcular o frete em relação ao CEP inserido, o ideal s
 
 #### Products List (BestSaller, Launch, Unmissable)
 Os produtos exibidos no carrossel, foram adicionados manualmente em array (ou seja, para cada carrossel foi adicionado um array de objetos onde cada objeto representa um produto. Na prática e no desenvolvimento de uma aplicação real para exibir essa lista de produtos criaria uma requisição a API, pegando a resposta dessa requisição direcionando os produtos para seus respectivos Carrossel.
+
+
+#### CarouselPictures
+O componente que exibe um slider na página individual de cada produto. Encontrei um bug nesse componente que até o momento não encontrei uma solução para ele, quando estamos na página Product em um produto com X imagens e trocamos para outro produto com as mesmas X imagens, a paginação que criei com imagens não altera para o novo produto. Parece que o Swiper não re-renderiza a paginação quando a quantidade de páginas será a mesma, logo o produto muda, mas as imagens da paginação lateral não mudam (caso o novo produto que será exibido em tela tenha quantidade de imagens diferentes do produto anterior, o Swiper renderiza novamente a paginação e troca de imagem. Estou buscando por uma solução, mas até o momento não encontrei nenhuma. :/
