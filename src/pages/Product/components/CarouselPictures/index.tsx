@@ -1,15 +1,17 @@
 import { useMemo } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
+import { IProduct } from '@/@types/product'
 
-import { useStoreCart } from '@/store/cart'
 import 'swiper/css/pagination'
 
 import './styles.css'
 
-export function CarouselPictures() {
-  const product = useStoreCart((state) => state.productInPage)
+interface Props {
+  product: IProduct
+}
 
+export function CarouselPictures({ product }: Props) {
   const pages = useMemo(() => {
     if (product) {
       if (product?.images?.length) {
@@ -25,7 +27,6 @@ export function CarouselPictures() {
     return null
   }
 
-  console.log(pages)
   return (
     <Swiper
       observer={true}

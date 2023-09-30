@@ -12,50 +12,55 @@ export default function ProductPage() {
   const { productId } = useParams()
   const productInPage = useStoreCart((state) => state.productInPage)
 
+  const product =
+    productInPage.current?.id === productId
+      ? productInPage.current
+      : productInPage?.prev?.id === productId && productInPage.prev
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    if (productInPage) {
-      document.title = `2bstore | ${productInPage.name}`
+    if (product) {
+      document.title = `2bstore | ${product.name}`
     }
-  }, [productInPage])
+  }, [product])
 
-  if (productInPage?.id !== productId) {
+  if (!product) {
     return <NotFoundProduct />
   }
 
   return (
     <>
       <div className={styles.wrapperProduct}>
-        <CarouselPictures />
-        <DetailsProduct product={productInPage!} />
+        <CarouselPictures product={product} />
+        <DetailsProduct product={product} />
       </div>
 
-      {!!productInPage?.description && (
+      {!!product?.description && (
         <section className={styles.descriptionProduct}>
           <div>
             <h5 className="h6-—-urbanist-—-20-pt">Descrição</h5>
-            {typeof productInPage.description === 'string' && (
+            {typeof product.description === 'string' && (
               <p className="body-02-—-urbanist-—-14-pt">
-                {productInPage.description}
+                {product.description}
               </p>
             )}
-            {typeof productInPage.description === 'object' && (
+            {typeof product.description === 'object' && (
               <>
                 <p className="body-02-—-urbanist-—-14-pt">
-                  {productInPage.description.text}
+                  {product.description.text}
                 </p>
                 <div>
                   <p className="body-02-—-urbanist-—-14-pt">
-                    Descrição cor: {productInPage.description.color}
+                    Descrição cor: {product.description.color}
                   </p>
                   <p className="body-02-—-urbanist-—-14-pt">
-                    Peso: {productInPage.description.weight}
+                    Peso: {product.description.weight}
                   </p>
                   <p className="body-02-—-urbanist-—-14-pt">
-                    Composição: {productInPage.description.composition}
+                    Composição: {product.description.composition}
                   </p>
                   <p className="body-02-—-urbanist-—-14-pt">
-                    Fabricante: {productInPage.description.manufacturer}
+                    Fabricante: {product.description.manufacturer}
                   </p>
                 </div>
               </>

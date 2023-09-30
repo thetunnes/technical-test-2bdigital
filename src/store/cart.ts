@@ -23,7 +23,10 @@ interface CartState {
 
   removeFromCart: (productId: string, sizeId: string) => void
 
-  productInPage: IProduct | null
+  productInPage: {
+    current: IProduct | null
+    prev?: IProduct
+  }
 
   addProductInPage: (product: IProduct) => void
 }
@@ -108,11 +111,17 @@ export const useStoreCart = create(
         })
       },
 
-      productInPage: null,
+      productInPage: {
+        current: null,
+      },
 
       addProductInPage: (product) => {
+        const { productInPage } = get()
         set({
-          productInPage: product,
+          productInPage: {
+            current: product,
+            prev: productInPage?.current ?? undefined,
+          },
         })
       },
     }),
