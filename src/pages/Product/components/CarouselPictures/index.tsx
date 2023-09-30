@@ -1,26 +1,41 @@
+import { useMemo } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
 
 import { useStoreCart } from '@/store/cart'
+import 'swiper/css/pagination'
+
 import './styles.css'
 
 export function CarouselPictures() {
   const product = useStoreCart((state) => state.productInPage)
 
-  if (!product) {
+  const pages = useMemo(() => {
+    if (product) {
+      if (product?.images?.length) {
+        return product.images
+      }
+      return [product.imageUrl]
+    }
+
+    return null
+  }, [product])
+
+  if (!product || !pages) {
     return null
   }
 
+  console.log(pages)
   return (
     <Swiper
+      observer={true}
+      observeParents={true}
       pagination={{
         clickable: true,
         renderBullet(index, className) {
-          return !product.images || !product.images.length
-            ? `<span class="${className}"><img src="${product.imageUrl}" /></span>`
-            : `<span class="${className}"><img src="${product.images[index]}" /></span>`
+          return `<span class="${className} ${product.id}"><img id="${product.id}" src="${pages[index]}" /></span>`
         },
-        bulletClass: 'image-pagination-bullet',
+        bulletClass: `image-pagination-bullet`,
         bulletActiveClass: 'image-pagination-bullet-active',
       }}
       className="swiperPictureProduct"

@@ -13,7 +13,7 @@ export function ProductsUnmissable() {
           imageUrl: TShirt,
           name: 'T-shirt Unissex 2b Yourself Preta Estampa Grafismo',
           price: 60,
-          images: [TShirt, TShirtPink],
+          images: [TShirt, TShirtPink, TShirt],
           sizes: [
             { id: 'small', label: 'P', stock: 0 },
             { id: 'medium', label: 'M', stock: 4 },

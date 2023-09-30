@@ -2,6 +2,7 @@ import { Button } from '@/components/Button'
 import styles from './styles.module.css'
 import { InputCEP } from '@/components/InputCEP'
 import { FormEvent, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 interface Props {
   onShowShipping: (b: boolean) => void
@@ -38,7 +39,12 @@ export function PriceShipping({ onShowShipping }: Props) {
             calcular
           </Button>
         </form>
-        <p>Não sei o CEP</p>
+        <Link
+          target="__blank"
+          to="https://buscacepinter.correios.com.br/app/endereco/index.php"
+        >
+          Não sei o CEP
+        </Link>
       </div>
     </div>
   )

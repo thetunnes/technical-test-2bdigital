@@ -14,6 +14,7 @@ export function ProductsBestsSaller() {
           id: '00c6e0db-cfa2-48d8-bf57-fd4b7bb53b0b',
           maxParcels: 2,
           imageUrl: WaterBottle,
+          images: [WaterBottle, TShirt],
           name: 'Garrafa 500ml Lets Drink Some Water',
           price: 60,
           sizes: [{ id: 'unique', label: 'U', stock: 0 }],
@@ -22,6 +23,8 @@ export function ProductsBestsSaller() {
           id: 'e488ddd9-4f95-4cb1-911f-e2273a17ae39',
           maxParcels: 3,
           imageUrl: TShirtPink,
+          images: [TShirtPink, TShirt, WaterBottle],
+
           name: 'T-shirt Unissex 2b Yourself Rosa',
           price: 152,
           sizes: [

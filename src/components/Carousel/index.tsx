@@ -4,7 +4,8 @@ import BannerPrincipal from '@/assets/banner principal@2x.png'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
-import './styles.css'
+
+import styles from './styles.module.css'
 
 export function Carousel() {
   return (
@@ -23,20 +24,21 @@ export function Carousel() {
           },
         }}
         modules={[Autoplay, Pagination]}
+        className={styles.swiper}
       >
-        <SwiperSlide>
+        <SwiperSlide className={styles['swiper-slide']}>
           <img
             src={BannerPrincipal}
             alt="Banner e-commerce & business performance 2bstore"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className={styles['swiper-slide']}>
           <img
             src={BannerPrincipal}
             alt="Banner e-commerce & business performance 2bstore"
           />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className={styles['swiper-slide']}>
           <img
             src={BannerPrincipal}
             alt="Banner e-commerce & business performance 2bstore"

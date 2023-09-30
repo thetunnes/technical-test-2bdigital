@@ -1,12 +1,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { IProduct } from '@/@types/product'
 import { Product } from '../Product'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
-import './styles.css'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { IProduct } from '@/@types/product'
+// import './styles.css'
+
+import styles from './styles.module.css'
 
 interface Props {
   products: Array<IProduct>
@@ -15,14 +17,14 @@ interface Props {
 
 export function CarouselProducts({ products, title }: Props) {
   return (
-    <div className="wrapper">
-      <h2 className="title">{title}</h2>
+    <div className={styles.wrapper}>
+      <h2 className={styles.title}>{title}</h2>
       <section>
         <Swiper
           navigation={{
             nextEl: '.new-swiper-button-next',
             prevEl: '.new-swiper-button-prev',
-            disabledClass: 'swiper-button-disabled',
+            disabledClass: styles['swiper-button-disabled'],
           }}
           modules={[Navigation]}
           breakpoints={{
@@ -39,16 +41,20 @@ export function CarouselProducts({ products, title }: Props) {
               spaceBetween: 32,
             },
           }}
-          className={title}
+          className={styles.swiper}
         >
-          <div className="swiper-button new-swiper-button-next">
+          <div
+            className={`${styles.button} swiper-button new-swiper-button-next ${styles['new-swiper-button-next']}`}
+          >
             <ArrowRight />
           </div>
-          <div className="swiper-button new-swiper-button-prev">
+          <div
+            className={`${styles.button} swiper-button new-swiper-button-prev ${styles['new-swiper-button-prev']}`}
+          >
             <ArrowLeft />
           </div>
           {products.map((product) => (
-            <SwiperSlide key={product.id} className="swiper-products">
+            <SwiperSlide key={product.id} className={styles.swiperProducts}>
               <Product product={product} />
             </SwiperSlide>
           ))}

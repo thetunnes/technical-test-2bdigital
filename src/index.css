@@ -351,3 +351,15 @@ a {
   color: var(--neutral-lightest);
   text-transform: var(--unnamed-text-transform-uppercase);
   }
+
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+    background: var(--azul-universe-light);
+  }
+  
+  .swiper-pagination-bullet-active {
+  
+    background: var(--rosa-2b-dark);
+  }
