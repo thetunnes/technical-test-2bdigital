@@ -1,3 +1,4 @@
+
 @import '@/index.css';
 
 .wrapper {
@@ -37,7 +38,7 @@
 }
 
 .nextEl {
-  background-image: url('./src/assets/next-icon.svg');
+  background-image: url('/next-icon.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 4px;
@@ -49,7 +50,7 @@
 }
 
 .prevEl {
-  background-image: url('./src/assets/prev-icon.svg');
+  background-image: url('/prev-icon.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 4px;
