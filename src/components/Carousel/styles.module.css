@@ -10,6 +10,14 @@
 
 }
 
+.swiper-slide:has(.loading) {
+  height: 200px;
+
+  @media screen and (max-width: 520px) {
+    height: 100px;
+  }
+}
+
 .swiper-slide img {
   width: 100%;
   object-fit: contain;

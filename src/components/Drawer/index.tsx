@@ -40,19 +40,23 @@ export function Drawer({ isOpen, onClose }: Props) {
   return (
     <div
       data-open={isOpen}
-      role="slider"
+      role="tab"
       ref={overlayRef}
       onClick={handleOverlayClick}
       className={styles.overlay}
     >
-      <div className={styles.wrapper} onClick={handleDrawerClick}>
+      <div
+        role="tabpanel"
+        className={styles.wrapper}
+        onClick={handleDrawerClick}
+      >
         <header className={styles.title}>
           <h3 className="sub-01-—-urbanist-—-18-pt">Meu carrinho</h3>
           <button aria-label="Close Drawer">
             <X
               strokeWidth={2.5}
               onClick={() => onClose()}
-              aria-controls="slider"
+              aria-controls="tab"
             />
           </button>
         </header>

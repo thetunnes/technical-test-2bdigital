@@ -371,5 +371,6 @@ a {
 
   .swiper-lazy-preloader {
     border-color: var(--rosa-2b-dark);
+    border-top-color: transparent;
     padding: 1rem;
   }

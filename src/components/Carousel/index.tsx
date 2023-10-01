@@ -30,19 +30,25 @@ export function Carousel() {
           <img
             src={BannerPrincipal}
             alt="Banner e-commerce & business performance 2bstore"
+            loading="lazy"
           />
+          <div className={`swiper-lazy-preloader ${styles.loading}`} />
         </SwiperSlide>
         <SwiperSlide className={styles['swiper-slide']}>
           <img
             src={BannerPrincipal}
             alt="Banner e-commerce & business performance 2bstore"
+            loading="lazy"
           />
+          <div className={`swiper-lazy-preloader ${styles.loading}`} />
         </SwiperSlide>
         <SwiperSlide className={styles['swiper-slide']}>
           <img
             src={BannerPrincipal}
             alt="Banner e-commerce & business performance 2bstore"
+            loading="lazy"
           />
+          <div className={`swiper-lazy-preloader ${styles.loading}`} />
         </SwiperSlide>
       </Swiper>
     </div>
