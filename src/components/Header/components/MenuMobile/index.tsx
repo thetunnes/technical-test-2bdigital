@@ -10,7 +10,6 @@ export function MenuMobile({ menus }: { menus: string[] }) {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
   function handleCloseClick(event: MouseEvent) {
-    console.log(event.target)
     if (
       wrapperRef?.current &&
       !wrapperRef?.current.contains(event.target as Node)
