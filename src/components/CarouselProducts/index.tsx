@@ -56,6 +56,7 @@ export function CarouselProducts({ products, title }: Props) {
           {products.map((product) => (
             <SwiperSlide key={product.id} className={styles.swiperProducts}>
               <Product product={product} />
+              {/* <div className="swiper-lazy-preloader" /> */}
             </SwiperSlide>
           ))}
         </Swiper>

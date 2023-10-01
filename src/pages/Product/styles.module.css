@@ -1,13 +1,14 @@
 @import '@/index.css';
 
 .wrapperProduct {
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 3rem;
-  padding: 3.125rem 9rem 3.125rem 2rem;
+  padding: 3.125rem 9rem 3.125rem 4rem;
   
   @media screen and (max-width: 900px) {
-    padding: 3.125rem 6rem 3.125rem 2rem;
+    padding: 3.125rem 6rem 3.125rem 4rem;
 
   }
   @media screen and (max-width: 768px) {

@@ -352,6 +352,11 @@ a {
   text-transform: var(--unnamed-text-transform-uppercase);
   }
 
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
   .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
@@ -362,4 +367,9 @@ a {
   .swiper-pagination-bullet-active {
   
     background: var(--rosa-2b-dark);
+  }
+
+  .swiper-lazy-preloader {
+    border-color: var(--rosa-2b-dark);
+    padding: 1rem;
   }

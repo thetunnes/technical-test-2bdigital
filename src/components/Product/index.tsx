@@ -70,7 +70,12 @@ export function Product({ product }: Props) {
       </div>
 
       <div className={styles.content}>
-        <img src={product.imageUrl} className={styles.picture} alt="" />
+        <img
+          src={product.imageUrl}
+          className={styles.picture}
+          alt=""
+          loading="lazy"
+        />
         <nav className={styles.sizes}>
           {product?.sizes.map((size) => (
             <Size

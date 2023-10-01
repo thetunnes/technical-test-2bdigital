@@ -1,0 +1,66 @@
+
+
+.wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: row-reverse;
+  
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.swiperPictureProduct {
+  flex: 1;
+}
+
+.swiperPictureProduct:not(.swiperThumbs) .slide > img {
+  width: 100%;
+  aspect-ratio: 1/1;
+
+  @media screen and (max-width: 520px) {
+    width: 90%;
+  }
+}
+
+.swiperPictureProduct.swiperThumbs {
+  width: 100%;
+  max-width: 64px;
+
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+}
+
+.slideThumb {
+  width: 64px;
+  height: 64px !important;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* @media screen and (max-width: 768px) {
+    width: 48px;
+    height: 48px;
+  } */
+}
+
+.slideThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  border: 1px solid var(--neutral-light);
+
+
+}
+
+.image-pagination-bullet-active {
+
+  background: var(--neutral-light);
+}
