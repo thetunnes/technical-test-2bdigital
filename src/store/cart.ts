@@ -29,6 +29,7 @@ interface CartState {
   }
 
   addProductInPage: (product: IProduct) => void
+  makePurchase: () => void
 }
 
 export const useStoreCart = create(
@@ -122,6 +123,13 @@ export const useStoreCart = create(
             current: product,
             prev: productInPage?.current ?? undefined,
           },
+        })
+      },
+
+      makePurchase: () => {
+        set({
+          products: [],
+          amount: 0,
         })
       },
     }),

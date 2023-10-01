@@ -12,10 +12,13 @@ interface Props {
 }
 
 export function Drawer({ isOpen, onClose }: Props) {
-  const { products, totalPrice } = useStoreCart(({ products, totalPrice }) => ({
-    products,
-    totalPrice,
-  }))
+  const { products, totalPrice, makePurchase } = useStoreCart(
+    ({ products, totalPrice, makePurchase }) => ({
+      products,
+      totalPrice,
+      makePurchase,
+    }),
+  )
   const overlayRef = useRef(null)
 
   function handleOverlayClick(event: MouseEvent<HTMLDivElement>) {
@@ -26,6 +29,12 @@ export function Drawer({ isOpen, onClose }: Props) {
 
   function handleDrawerClick(event: MouseEvent<HTMLDivElement>) {
     event.stopPropagation()
+  }
+
+  function handleSubmit() {
+    makePurchase()
+    alert('Sua compra fictícia foi finalizada com sucesso!')
+    onClose()
   }
 
   return (
@@ -78,7 +87,7 @@ export function Drawer({ isOpen, onClose }: Props) {
             <p className={styles.totalPrice}>{formatCurrency(totalPrice())}</p>
           </div>
 
-          <Button disabled={!products.length}>
+          <Button disabled={!products.length} onClick={handleSubmit}>
             {products.length ? 'finalizar compra' : 'não tem produtos'}
           </Button>
         </footer>
