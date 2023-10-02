@@ -14,6 +14,15 @@
   * Execute o comando `yarn dev` para iniciar o projeto.
   * Pronto, agora você já tem acesso a sua aplicação na porta `:3000`
 
+  ### Technologies
+  * Vite v4.4.5
+  * TypeScript
+  * ESLint
+  * Config ESLint Rocketseat v2.1.0
+  * Zustand
+  * Swiper
+  * Lucide React (Icons)
+
 ## Sobre 2bstore Site
 
   Esse projeto, foi desenvolvido como parte do processo de candidatura para a 2bdigital, foi disponibilizado um protótipo no Adobe Xd que deveríamos seguir para desenvolver
@@ -72,7 +81,7 @@ A aplicação possui diversos carroséis, alguns bem semelhantes e outros com um
 O componente Header foi bem simples de fazer, não criei um visual para a navegação do menu em uma versão mobile, porém ao menos ocultei a nav e adicionei um botão para abertura de um menu mobile (sem nenhuma ação adicionada a ele).
 
 #### Cart
-O Cart é responsável por exibir a quantidade de produtos que estão no carrinho (essa informação é retirada do estado global criado com o Zustand) e também é o componente que determina se o Drawer do carrinho está aberto ou fechado, de acordo com o estado retornado pelo `Context API`.
+O Cart é responsável por exibir a quantidade de produtos que estão no carrinho (essa informação é retirada do estado global criado com o Zustand) e também é o componente que determina se o Drawer do carrinho está aberto ou fechado, de acordo com o estado retornado pelo `Context API`. O zustand também está armazenando seus dados no localStorage do navegador, então os dados do carrinho não são perdidos quando a aplicação é fechada. (Eu gostaria de ter tentado utilizar o IndexedDB, uma ferramenta que simula um banco de dados para aplicações Front-end, porém descobri essa ferramenta recentemente e a curva de aprendizado não parecia ser tão rápida para implementar junto ao Zustand.
 
 
 #### Price Shipping
@@ -83,4 +92,6 @@ Os produtos exibidos no carrossel, foram adicionados manualmente em array (ou se
 
 
 #### CarouselPictures
-O componente que exibe um slider na página individual de cada produto. Encontrei um bug nesse componente que até o momento não encontrei uma solução para ele, quando estamos na página Product em um produto com X imagens e trocamos para outro produto com as mesmas X imagens, a paginação que criei com imagens não altera para o novo produto. Parece que o Swiper não re-renderiza a paginação quando a quantidade de páginas será a mesma, logo o produto muda, mas as imagens da paginação lateral não mudam (caso o novo produto que será exibido em tela tenha quantidade de imagens diferentes do produto anterior, o Swiper renderiza novamente a paginação e troca de imagem. Estou buscando por uma solução, mas até o momento não encontrei nenhuma. :/
+O componente que exibe um slider na página individual de cada produto. Encontrei um bug interessante na forma que eu havia criado esse componente, ele devia exibir como "paginação" todas as fotos que pertence aquele produto, para isso inicialmente, utilizei o próprio Pagination utilizado no Carousel Principal. O Swiper para o Pagination possui um mecanismo para ganho de performance que é manter a mesma paginação do produto anterior caso tenham a mesma quantidade de páginas, isso fazia com que as imagens da paginação não altere, pois manteria a mesma paginação do produto anterior. 
+Isso foi um erro meu! Não deveria ter escolhido fazer usando o Pagination, devia ter feito direto com o Thumbs (O Thumbs é uma ferramenta do Swiper que permite sincronizar 2 Swipers, assim utilizamos um como Paginação do Swiper que renderiza a imagem do produto).
+O bug encontrado foi corrigido no fim de semana e está funcionando 100%.
