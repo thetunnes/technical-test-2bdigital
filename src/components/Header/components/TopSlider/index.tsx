@@ -17,6 +17,7 @@ export function TopSlider() {
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper
         }}
+        loop
       >
         <span
           onClick={() => swiperRef.current?.slidePrev()}
@@ -31,6 +32,11 @@ export function TopSlider() {
           <p className={styles.text}>
             <b className={styles.boldPink}>Frete Grátis</b> para compras a
             partir de R$199
+          </p>
+        </SwiperSlide>
+        <SwiperSlide>
+          <p className={styles.text}>
+            <b className={styles.boldPink}>PROMOÇÃO</b> de lançamento
           </p>
         </SwiperSlide>
       </Swiper>
