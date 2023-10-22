@@ -1,5 +1,5 @@
 import { IProduct, Size } from '@/@types/product'
-import { calcDiscount } from '@/utils/calcDiscount'
+import { productIsOnSale } from '@/utils/calcDiscount'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -42,13 +42,7 @@ export const useStoreCart = create(
         const { products } = get()
 
         return products.reduce((prevPay, product) => {
-          const indexTagSale = product?.tags?.findIndex(
-            (tag) => tag.type === 'sale',
-          ) as number
-          const tagSale = product?.tags?.[indexTagSale] ?? null
-          const price = tagSale
-            ? calcDiscount(tagSale.label, product.price)
-            : product.price
+          const price = productIsOnSale(product) ?? product.price
 
           prevPay += price * product.amount
           return prevPay

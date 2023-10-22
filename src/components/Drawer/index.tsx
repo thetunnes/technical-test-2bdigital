@@ -52,12 +52,12 @@ export function Drawer({ isOpen, onClose }: Props) {
       >
         <header className={styles.title}>
           <h3 className="sub-01-—-urbanist-—-18-pt">Meu carrinho</h3>
-          <button aria-label="Close Drawer">
-            <X
-              strokeWidth={2.5}
-              onClick={() => onClose()}
-              aria-controls="tab"
-            />
+          <button
+            aria-controls="tab"
+            aria-label="Close Drawer"
+            onClick={() => onClose()}
+          >
+            <X strokeWidth={2.5} />
           </button>
         </header>
 

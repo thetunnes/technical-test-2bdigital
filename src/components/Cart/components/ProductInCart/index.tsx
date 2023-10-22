@@ -1,10 +1,10 @@
 import { Minus, Plus, Trash2 } from 'lucide-react'
 import styles from './styles.module.css'
-import { useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import { IProduct, Size } from '@/@types/product'
 import { useStoreCart } from '@/store/cart'
 import { formatCurrency } from '@/utils/formatCurrency'
-import { calcDiscount } from '@/utils/calcDiscount'
+import { productIsOnSale } from '@/utils/calcDiscount'
 
 interface Product extends Omit<IProduct, 'sizes' | 'tag'> {
   selectedSize: Size
@@ -25,14 +25,9 @@ export function ProductInCart({ product }: Props) {
   )
   const amountRef = useRef<HTMLInputElement>(null)
 
-  const indexTagSale = product?.tags?.findIndex(
-    (tag) => tag.type === 'sale',
-  ) as number
-  const tagSale = product?.tags?.[indexTagSale] ?? null
-
-  const discountPrice = tagSale
-    ? calcDiscount(tagSale.label, product.price)
-    : null
+  const discountPrice = useMemo(() => {
+    return productIsOnSale(product)
+  }, [product])
 
   return (
     <div className={styles.wrapper}>
@@ -58,6 +53,7 @@ export function ProductInCart({ product }: Props) {
               onClick={() =>
                 removeUnitProduct(product.id, product.selectedSize.id)
               }
+              data-testid="decreaseProduct"
               disabled={product.amount < 2}
             >
               <Minus />
@@ -72,6 +68,7 @@ export function ProductInCart({ product }: Props) {
             <button
               onClick={() => addToCart(product)}
               disabled={product.amount === product.selectedSize.stock}
+              data-testid="addProduct"
             >
               <Plus />
             </button>

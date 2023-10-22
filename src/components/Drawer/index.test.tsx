@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { describe, expect, it, vitest } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { Drawer } from '.'
 import { useStoreCart } from '@/store/cart'
 
@@ -27,7 +27,7 @@ describe('Drawer component', () => {
   })
 
   it('should be call fn close when wrapper Drawer is clicked', () => {
-    const onCloseMock = vitest.fn()
+    const onCloseMock = vi.fn()
     render(<Drawer isOpen={true} onClose={onCloseMock} />)
     const WrapperDrawer = screen.getByRole('tab')
     fireEvent.click(WrapperDrawer)
@@ -35,7 +35,7 @@ describe('Drawer component', () => {
   })
 
   it('should be not call fn close when content Drawer is clicked', () => {
-    const onCloseMock = vitest.fn()
+    const onCloseMock = vi.fn()
     render(<Drawer isOpen={true} onClose={onCloseMock} />)
     const contentDrawer = screen.getByRole('tabpanel')
     fireEvent.click(contentDrawer)
@@ -43,14 +43,24 @@ describe('Drawer component', () => {
   })
 
   it('should be clicked to close the drawer when there is a product in the cart', () => {
-    window.alert = vitest.fn()
+    window.alert = vi.fn()
     useStoreCart.setState({
       products: [product],
     })
-    const onCloseMock = vitest.fn()
+    const onCloseMock = vi.fn()
     render(<Drawer isOpen={true} onClose={onCloseMock} />)
     const submitButton = screen.getByText('finalizar compra')
     fireEvent.click(submitButton)
+    expect(onCloseMock).toHaveBeenCalled()
+  })
+
+  it('should be close drawer on click button Close', () => {
+    const onCloseMock = vi.fn(() => 0)
+    render(<Drawer isOpen={true} onClose={onCloseMock} />)
+
+    const btnClose = screen.getByLabelText('Close Drawer')
+    fireEvent.click(btnClose)
+
     expect(onCloseMock).toHaveBeenCalled()
   })
 })
