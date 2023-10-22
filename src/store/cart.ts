@@ -3,11 +3,11 @@ import { calcDiscount } from '@/utils/calcDiscount'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-interface ProductToAdd extends Omit<IProduct, 'sizes' | 'tag'> {
+export interface ProductToAdd extends Omit<IProduct, 'sizes' | 'tag'> {
   selectedSize: Size
 }
 
-interface ProductCart extends ProductToAdd {
+export interface ProductCart extends ProductToAdd {
   amount: number
 }
 
