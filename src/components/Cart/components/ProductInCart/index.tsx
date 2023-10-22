@@ -36,7 +36,7 @@ export function ProductInCart({ product }: Props) {
 
   return (
     <div className={styles.wrapper}>
-      <img src={product.imageUrl} />
+      <img src={product.imageUrl} alt="" />
       <div className={styles.content}>
         <header className={styles.header}>
           <div className={styles.titleProduct}>
