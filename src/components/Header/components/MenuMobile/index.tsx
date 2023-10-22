@@ -34,6 +34,7 @@ export function MenuMobile({ menus }: { menus: string[] }) {
       <Menu
         className={styles.menuMobile}
         onClick={() => setIsOpenTab((prev) => !prev)}
+        role="button"
       />
 
       <nav className={styles.wrapperItems} data-open={isOpenTab}>
@@ -45,6 +46,7 @@ export function MenuMobile({ menus }: { menus: string[] }) {
               (pathname === '/' && menu.includes('ofertas')) ||
               pathname.includes(menu)
             }
+            role="navigation"
           >
             {menu}
           </a>

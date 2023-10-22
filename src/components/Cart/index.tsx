@@ -14,6 +14,7 @@ export function Cart() {
         className={styles.buttonCart}
         onClick={() => onIsOpen(true)}
         aria-controls="slider"
+        data-testid="btnOpenCart"
       >
         <CartIcon className={styles.cartIcon} />
         <span className={styles.amountItems}>{amountProducts}</span>
