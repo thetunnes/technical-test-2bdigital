@@ -34,13 +34,28 @@
 
   ### Testes automatizados (unit test)
 
-  Após a última entrevista do projeto tive um parâmetro melhor sobre a importância da criação de testes unitários no desenvolvimento Front-end, como também entendi muito bem como essa é uma habilidade essencial para um membro de agências, o qual trabalham desenvolvendo produtos em sua melhor qualidade para
-  Como boa prática para escrita de código 
+  Como boa prática para escrita de código saber desenvolver testes unitários é essencial, qualquer aplicação web se beneficia dos testes automatizados, como também auxiliam muito o desenvolvedor a criar e refatorar o código já testado. 
+  
+  Não utilizei os benefícios do TDD no projeto, pois ele já estava pronto e funcional, faltavam apenas os `unit test`. Aqui nesse pequeno trecho irei falar um pouco sobre os meus conhecimentos e o que eu aprendi desenvolvendo testes para a aplicação:
 
-  Irei pontuar alguns pontos importantes que estudei e apliquei durante a idealização e desenvolvimento dos testes unitários:
+  * `TDD é uma metodologia ágil o qual nos diz para desenvolver orientado a testes, ou seja, 1º desenvolver os testes, 2º criar o código/refatorar até que passe no teste (Red, Refactoring, Green)`
 
-  ProductInCart
-  A refatoração de um código foi necessária para cobrir todos os testes dentro do componente, só fui entender que o código estava com "problema" após começar a idealizar os testes unitários nesse componente.
+  #### Bibliotecas para criação dos testes
+  * @testing-library/react
+  * vitest
+  * @vitest/coverage-v8
+  * @vitest/ui
+
+  #### Funções, ferramentas e utilitários
+
+  * vi => utilitário do vitest que trás diversas funções que facilita a criação de testes
+  * render => Insere elementos e componentes no `document.body`
+  * screen => Auxilia na seleção de elementos em tela e permite executar eventos para eles
+  * beforeEach => função executada antes de executar cada teste, serve geralmente para resetar campos ou definir uma estrutura
+  * renderHook => uma função criada pela testing-library que define um escopo para executar hooks da aplicação dentro dos testes
+  * act => essa função eu de fato não conhecia, desenvolvendo os testes para essa aplicação vi os benefícios que ela trás. Definida na própria utils de testes do React essa função simula melhor o teste para funcionar como se estivesse em um navegador, em conjunto do renderHook eles simulam muito bem como as funções e alteração de estados são executadas no navegador. 
+
+  A refatoração de código no componente `ProductInCart` e criação da função `productIsOnSale()` foi necessária para cobrir todos os testes dentro do componente, só fui entender que o código estava com "problema" e verboso após começar a idealizar os testes unitários nesse componente.
   
   #### Estilizações iniciais (CSS3)
   Iniciando o projeto, logo apaguei alguns arquivos que não seriam necessários e criei uma base de estilos que seriam utilizados por toda a aplicação. 
