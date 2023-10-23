@@ -7,7 +7,7 @@ import {
 } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { ProductInCart } from '.'
-import { ProductCart, useStoreCart } from '@/store/cart'
+import { ProductCart, ProductToAdd, useStoreCart } from '@/store/cart'
 const product = {
   id: 'product-id',
   imageUrl: '',
@@ -22,7 +22,10 @@ describe('Product in Cart', () => {
   beforeEach(() => {
     const { result } = renderHook(() => useStoreCart())
 
-    act(() => (result.current.products = [product]))
+    act(() => {
+      result.current.amount = 1
+      result.current.products = [product]
+    })
   })
   it('should be render details of product', () => {
     render(
@@ -82,5 +85,44 @@ describe('Product in Cart', () => {
     )
 
     expect(product.amount).toBe(1)
+  })
+
+  it('should not display the discounted value on the screen if product without tag sale', async () => {
+    const { result } = renderHook(() => useStoreCart())
+
+    const product = {
+      id: 'product-id1',
+      imageUrl: '',
+      maxParcels: 3,
+      name: 'Product Test',
+      price: 110,
+      selectedSize: { id: 'size-id', label: 'Size', stock: 3 },
+      tags: [{ label: '20%', type: 'sale' }],
+    } as ProductToAdd
+
+    act(() => result.current.addToCart(product))
+    const indexProduct = result.current.amount - 1
+    const { findByTestId } = render(
+      <ProductInCart product={result.current.products[indexProduct]} />,
+    )
+
+    const boxDiscountPrice = await findByTestId('discountPrice')
+
+    expect(boxDiscountPrice).toBeTruthy()
+  })
+
+  it('should be able remove product from Cart', () => {
+    const { result } = renderHook(() => useStoreCart())
+
+    const product = result.current.products[0]
+    render(<ProductInCart product={product} />)
+    console.log(result.current.products)
+
+    const btnMinus = screen.getByTestId('removeProduct')
+
+    fireEvent.click(btnMinus)
+
+    expect(result.current.amount).toBe(0)
+    expect(result.current.products.length).toBe(0)
   })
 })

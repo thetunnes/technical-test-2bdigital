@@ -42,6 +42,7 @@ export function ProductInCart({ product }: Props) {
           </div>
           <button
             className={styles.removeItem}
+            data-testid="removeProduct"
             onClick={() => removeFromCart(product.id, product.selectedSize.id)}
           >
             <Trash2 strokeWidth={1} />
@@ -77,7 +78,7 @@ export function ProductInCart({ product }: Props) {
           <div>
             {discountPrice ? (
               <>
-                <div className={styles.price}>
+                <div className={styles.price} data-testid="discountPrice">
                   <span className={styles.fullPrice}>
                     {formatCurrency(product.price)}
                   </span>
